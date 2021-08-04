@@ -1,0 +1,18 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+
+<div class="header-bar">
+    <h3 class="title">To Do App</h3>
+    <p><a class="btn btn-sm btn-info" href="{% url 'home' %}">&#8592; Back</a></p>
+</div>   
+<hr>
+<div class="form-body">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-sm btn-success" type="submit" name="submit">
+    </form>
+</div>
+
+{% endblock %}

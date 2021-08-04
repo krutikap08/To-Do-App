@@ -1,0 +1,46 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <h3 class="title">Register</h3>
+    
+</div>   
+<hr>
+<div class="form-body">
+    <form method="POST">
+        {% csrf_token %}
+        <label>{{form.username.label}}</label>
+        {{form.username}}
+        <br>
+        <label>{{form.email.label}}</label>
+        {{form.email}}
+        <br>
+        <label>{{form.password1.label}}</label>
+        {{form.password1}}
+        <br>
+        <label>{{form.password2.label}}</label>
+        {{form.password2}}
+        <br>
+        <input style="margin-top:10px;" class="button" type="submit" value="register">
+    </form>
+    {% for message in messages %}
+        <p id="messages">{{message}}</p>
+    {% endfor %}
+    <p>Already have an account? <a href="#">Login</a></p>
+</div>
+
+<script>
+//Query All input fields
+var form_fields = document.getElementsByTagName('input')
+form_fields[1].placeholder='Username..';
+form_fields[2].placeholder='Email..';
+form_fields[3].placeholder='Enter password...';
+form_fields[4].placeholder='Re-enter Password...';
+
+
+for (var field in form_fields){	
+form_fields[field].className += ' form-control'
+}
+</script>
+
+{% endblock %}

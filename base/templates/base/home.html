@@ -1,0 +1,49 @@
+<!-- The pnly thing remaining is connecting the add task to the user and removing that field from the form so that automatically the saved task gets added to the login user -->
+
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <div>
+        <h1>Hello {{request.user|title}}</h1>
+    </div>
+
+    {% if request.user.is_authenticated %}
+    <div>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+    
+</div>
+<hr>
+
+<div class="row">
+			
+</div>
+
+<div class="form-body">
+    <form method="get">
+        {{myFilter.form}}
+        <button class="btn btn-sm btn-outline-info" type="submit">Search</button>
+    </form>
+    <br>
+    <div><a class="btn btn-sm btn-outline-info" href="{% url 'task-create' %}">Add Task</a></div>
+    <br>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{task.title}}</td>
+            <td><a class="btn btn-sm btn-warning" href="{% url 'task-update' task.id %}">Update</a></td>
+            <td><a class="btn btn-sm btn-danger" href="{% url 'task-delete' task.id %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

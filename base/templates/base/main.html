@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CRM</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <style>
+            body{
+                background-color: #154f5f;
+                padding-top: 50px;
+            }
+
+            .container{
+                background-color: rgb(198, 198, 198);
+                max-width: 600px;
+                margin: auto;
+                -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21) ;
+                box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+            }
+
+            h1,h2,h3,h4,h5,h6{
+                text-align: center;
+                padding-top: 10px;
+            }
+
+            .title{
+                margin: auto;
+            }
+
+            a, a:hover{
+                text-decoration: none;
+            }
+
+            .form-body{
+                padding:15px
+            }
+
+            td{
+                padding:5px
+            }
+
+            .header-bar{
+                display: flex;
+                justify-content: space-between;
+                padding-left:15px;
+                padding-top:8px;
+                border-radius: 5px 5px 0 0;
+                
+            }
+
+        </style>
+    
+    </head>
+    <body>
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+    </body>
+</html>
